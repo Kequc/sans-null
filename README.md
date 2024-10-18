@@ -1,6 +1,6 @@
 # sans-null
 
-`sans-null` is a TypeScript library that deep removes `null` values from objects, arrays, and nested structures, replacing them with `undefined`.
+TypeScript library that deep removes `null` values from objects, arrays, and nested structures, replacing them with `undefined`.
 
 ## Installation
 
@@ -12,7 +12,7 @@ npm i sans-null
 
 ## Usage
 
-Import the `sansNull` function from the library and use it to remove `null` values from your data structures.
+Import `sansNull` from the library and use it to remove `null` values from your data structures.
 
 ```typescript
 import { sansNull } from 'sans-null';
@@ -31,13 +31,31 @@ const data = {
 
 const result = sansNull(data);
 
-typeof result.a; // undefined
-typeof result.b; // (number | undefined)[]
-typeof result.c.d; // undefined
-typeof result.c.e; // string
-typeof result.c.f.g; // undefined
-typeof result.c.f; // { g: undefined }
-typeof result.c; // { d: undefined, e: string, f: { g: undefined } }
+// result
+// {
+//     a: undefined,
+//     b: [1, undefined, 3],
+//     c: {
+//         d: undefined,
+//         e: 'text',
+//         f: {
+//             g: undefined,
+//         },
+//     },
+// }
+
+// typeof result
+// {
+//     a: undefined;
+//     b: (number | undefined)[];
+//     c: {
+//         d: undefined;
+//         e: string;
+//         f: {
+//             g: undefined;
+//         };
+//     };
+// }
 ```
 
 ## API
