@@ -1,7 +1,7 @@
 export type SansNull<T> = T extends null
     ? undefined
     : T extends Array<infer U>
-    ? SansNull<U>[]
+    ? Array<SansNull<U>>
     : T extends Date
     ? Date
     : T extends object
