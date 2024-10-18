@@ -74,10 +74,10 @@ Transforms the input value by replacing all `null` values with `undefined`.
 
 ## TypeScript
 
-The `SansNull` type is available.
+The `SansNull` type is available. Additionally, the `sansNull` function itself can accept a type to ensure type safety.
 
 ```typescript
-import { SansNull } from 'sans-null';
+import { sansNull, SansNull } from 'sans-null';
 
 const data = {
     a: 1,
@@ -88,7 +88,12 @@ const data = {
     }
 };
 
-SansNull<typeof data>
+// Using SansNull as a generic type
+type TransformedData = SansNull<typeof data>;
+
+// Using sansNull with a type
+// Note this example is redundant as the correct type is inferred.
+const result = sansNull<typeof data>(data);
 ```
 
 ## Contributing
