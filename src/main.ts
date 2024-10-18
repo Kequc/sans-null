@@ -1,13 +1,15 @@
 export type SansNull<T> = T extends null
     ? undefined
-    : T extends (infer U)[]
+    : T extends Array<infer U>
     ? SansNull<U>[]
+    : T extends Date
+    ? Date
     : T extends object
     ? { [K in keyof T]: SansNull<T[K]> }
     : T;
 
 export function sansNull<T>(value: T): SansNull<T> {
-    if (value === null || value === undefined) {
+    if (value === null) {
         return undefined as SansNull<T>;
     }
 
