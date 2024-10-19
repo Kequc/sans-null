@@ -83,7 +83,7 @@ type DataType = {
     a: number | null;
     b: string | null;
     c?: {
-        d: string | null;
+        d?: string | null;
         e: (number | null)[];
     };
 };
@@ -96,7 +96,7 @@ type DataTypeSansNull = SansNull<DataType>;
 //     a: number | undefined;
 //     b: string | undefined;
 //     c?: {
-//         d: string | undefined;
+//         d?: string | undefined;
 //         e: (number | undefined)[];
 //     } | undefined;
 // }
