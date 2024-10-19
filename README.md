@@ -88,15 +88,6 @@ type DataType = {
     };
 };
 
-const data: DataType = {
-    a: 1,
-    b: null,
-    c: {
-        d: null,
-        e: [1, null, 3]
-    }
-};
-
 // Using SansNull as a generic type
 type DataTypeSansNull = SansNull<DataType>;
 
@@ -109,6 +100,15 @@ type DataTypeSansNull = SansNull<DataType>;
 //         e: (number | undefined)[];
 //     } | undefined;
 // }
+
+const data: DataType = {
+    a: 1,
+    b: null,
+    c: {
+        d: null,
+        e: [1, null, 3]
+    }
+};
 
 // Using sansNull with a type
 // Note this example is redundant as the correct type is inferred.
