@@ -80,7 +80,7 @@ The `SansNull` type is available. Additionally, the `sansNull` function itself c
 import { sansNull, SansNull } from 'sans-null';
 
 type DataType = {
-    a: number | null;
+    a: number;
     b: string | null;
     c?: {
         d?: string | null;
@@ -93,7 +93,7 @@ type DataTypeSansNull = SansNull<DataType>;
 
 // DataTypeSansNull
 // {
-//     a: number | undefined;
+//     a: number;
 //     b: string | undefined;
 //     c?: {
 //         d?: string | undefined;
