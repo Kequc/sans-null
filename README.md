@@ -79,7 +79,16 @@ The `SansNull` type is available. Additionally, the `sansNull` function itself c
 ```typescript
 import { sansNull, SansNull } from 'sans-null';
 
-const data = {
+type DataType = {
+    a: number | null;
+    b: string | null;
+    c?: {
+        d: string | null;
+        e: (number | null)[];
+    };
+};
+
+const data: DataType = {
     a: 1,
     b: null,
     c: {
@@ -89,11 +98,21 @@ const data = {
 };
 
 // Using SansNull as a generic type
-type TransformedData = SansNull<typeof data>;
+type DataTypeSansNull = SansNull<DataType>;
+
+// DataTypeSansNull
+// {
+//     a: number | undefined;
+//     b: string | undefined;
+//     c?: {
+//         d: string | undefined;
+//         e: (number | undefined)[];
+//     } | undefined;
+// }
 
 // Using sansNull with a type
 // Note this example is redundant as the correct type is inferred.
-const result = sansNull<typeof data>(data);
+const result = sansNull<DataType>(data);
 ```
 
 ## Contributing
