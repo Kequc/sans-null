@@ -82,7 +82,7 @@ import { sansNull, SansNull } from 'sans-null';
 type DataType = {
     a: number;
     b: string | null;
-    c?: {
+    c: {
         d?: string | null;
         e: (number | null)[];
     };
@@ -95,10 +95,10 @@ type DataTypeSansNull = SansNull<DataType>;
 // {
 //     a: number;
 //     b: string | undefined;
-//     c?: {
+//     c: {
 //         d?: string | undefined;
 //         e: (number | undefined)[];
-//     } | undefined;
+//     };
 // }
 
 const data: DataType = {
